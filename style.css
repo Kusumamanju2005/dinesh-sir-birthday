@@ -1,0 +1,699 @@
+/* ==========================================
+   DINESH SIR'S BIRTHDAY WEBSITE
+   Luxury Black & Gold Theme
+========================================== */
+
+/* 1. RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #090909;
+  --surface: #111111;
+  --surface-light: #181818;
+  --gold: #d9b56d;
+  --gold-light: #f5e1ac;
+  --gold-dark: #9c783b;
+  --text: #f7f3eb;
+  --muted: #b8b1a4;
+  --border: rgba(217, 181, 109, 0.24);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(126, 91, 35, 0.15),
+      transparent 55%
+    ),
+    var(--background);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 5px;
+}
+
+::selection {
+  background: var(--gold);
+  color: #090909;
+}
+
+/* 2. HIDE SECTIONS */
+
+.hidden {
+  display: none !important;
+}
+
+/* 3. BACKGROUND EFFECTS */
+
+#fireworksCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#confettiContainer {
+  position: fixed;
+  inset: 0;
+  z-index: 11;
+  pointer-events: none;
+}
+
+/* 4. GENERAL SCREEN LAYOUT */
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  padding: 70px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  isolation: isolate;
+}
+
+.screen::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(217, 181, 109, 0.09);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.eyebrow {
+  margin-bottom: 18px;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+}
+
+h2 {
+  color: var(--gold-light);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 4vw, 36px);
+  font-weight: 400;
+}
+
+/* 5. WELCOME PAGE */
+
+.welcome-screen {
+  overflow: hidden;
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(173, 129, 56, 0.12),
+    transparent 38%
+  );
+}
+
+.welcome-screen > * {
+  position: relative;
+}
+
+.gold-ring {
+  position: absolute;
+  width: min(430px, 85vw);
+  aspect-ratio: 1;
+  border: 1px solid rgba(217, 181, 109, 0.12);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ring-glow 5s ease-in-out infinite;
+}
+
+.gold-ring::before,
+.gold-ring::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(217, 181, 109, 0.09);
+  border-radius: 50%;
+}
+
+.gold-ring::before {
+  inset: 20px;
+}
+
+.gold-ring::after {
+  inset: 42px;
+}
+
+.crown {
+  margin-bottom: 14px;
+  color: var(--gold-light);
+  font-size: 36px;
+  animation: gentle-float 3s ease-in-out infinite;
+}
+
+.welcome-screen h1 {
+  margin-bottom: 22px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 7vw, 68px);
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  line-height: 1.18;
+}
+
+.welcome-screen h1 span {
+  display: inline-block;
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.welcome-message {
+  max-width: 470px;
+  margin: 0 auto 34px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.bottom-note {
+  margin-top: 65px;
+  color: #82745a;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+/* 6. PREMIUM GOLD BUTTONS */
+
+.gold-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 52px;
+  max-width: 100%;
+  padding: 15px 27px;
+  overflow: hidden;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), #c19a50);
+  color: #15110a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.gold-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(217, 181, 109, 0.2);
+}
+
+.gold-button:active {
+  transform: translateY(0);
+}
+
+/* 7. COUNTDOWN PAGE */
+
+.countdown-screen {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(217, 181, 109, 0.12),
+    transparent 60%
+  );
+}
+
+.countdown-screen h2 {
+  margin-bottom: 20px;
+}
+
+#countdownNumber {
+  color: var(--gold-light);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(90px, 20vw, 160px);
+  font-weight: 400;
+  line-height: 1.3;
+  text-shadow: 0 0 45px rgba(217, 181, 109, 0.18);
+  animation: countdown-appear 0.5s ease;
+}
+
+.countdown-caption {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* 8. BIRTHDAY REVEAL PAGE */
+
+.reveal-screen {
+  background: radial-gradient(
+    ellipse at 50% 15%,
+    rgba(140, 103, 43, 0.13),
+    transparent 50%
+  );
+}
+
+.reveal-content {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  animation: reveal-appear 0.8s ease both;
+}
+
+.birthday-icon {
+  margin: 0 auto 14px;
+  font-size: 44px;
+  filter: drop-shadow(0 5px 20px rgba(217, 181, 109, 0.18));
+}
+
+.small-greeting {
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.birthday-title {
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 7vw, 67px);
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.18;
+}
+
+.birthday-title span {
+  display: block;
+  margin-top: 8px;
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: min(260px, 80%);
+  margin: 26px auto;
+  color: var(--gold);
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dark));
+}
+
+.gold-divider::after {
+  transform: rotate(180deg);
+}
+
+.birthday-message {
+  max-width: 650px;
+  margin: 0 auto 23px;
+  color: #c9c1b4;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.signature {
+  margin-bottom: 28px;
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.music-button {
+  margin: 5px auto 38px;
+}
+
+.memories-navigation {
+  width: 100%;
+  max-width: 480px;
+  margin: 8px auto 0;
+  padding: 27px 15px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.memories-navigation .eyebrow {
+  margin-bottom: 15px;
+}
+
+.closing-wish {
+  margin-top: 30px;
+  color: #bca77c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* 9. MEMORIES PAGE */
+
+#memoriesPage {
+  padding-top: 80px;
+  padding-bottom: 70px;
+}
+
+#memoriesPage .birthday-title {
+  margin-bottom: 18px;
+}
+
+#memoriesPage .birthday-message {
+  margin-bottom: 45px;
+}
+
+.gallery-section {
+  width: 100%;
+  margin: 0 auto 55px;
+}
+
+.gallery-section h2,
+.video-section h2 {
+  margin-bottom: 26px;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.gallery-photo {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  padding: 7px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #15130f;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.gallery-photo:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+}
+
+/* 10. VIDEO SECTION */
+
+.video-section {
+  width: 100%;
+  margin: 0 auto 38px;
+}
+
+.video-gallery {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.video-card {
+  width: 100%;
+  max-width: 560px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: linear-gradient(145deg, #171510, #0e0e0e);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+.memory-video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 315px;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #000;
+  border-radius: 2px;
+}
+
+.sound-toggle {
+  margin-top: 14px;
+  padding: 9px 14px;
+  border: 1px solid var(--gold-dark);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--gold-light);
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sound-toggle:hover {
+  background: rgba(217, 181, 109, 0.1);
+}
+
+.video-card p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* 11. BACK BUTTON */
+
+#backToBirthday {
+  margin-top: 12px;
+}
+
+/* 12. ANIMATIONS */
+
+@keyframes reveal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes ring-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes countdown-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 13. TABLET RESPONSIVE DESIGN */
+
+@media (max-width: 760px) {
+  .screen {
+    padding: 55px 24px;
+  }
+
+  .screen::before {
+    inset: 12px;
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .gallery-photo {
+    height: 260px;
+  }
+
+  .gallery-photo:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 7px);
+    justify-self: center;
+  }
+
+  .birthday-message {
+    font-size: 14px;
+  }
+
+  .bottom-note {
+    margin-top: 48px;
+  }
+}
+
+/* 14. MOBILE RESPONSIVE DESIGN */
+
+@media (max-width: 480px) {
+  .screen {
+    padding: 45px 21px;
+  }
+
+  .screen::before {
+    inset: 9px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+  }
+
+  .welcome-screen h1 {
+    font-size: clamp(36px, 10vw, 47px);
+    letter-spacing: -0.8px;
+  }
+
+  .welcome-message {
+    font-size: 14px;
+  }
+
+  .gold-button {
+    width: 100%;
+    max-width: 330px;
+    min-height: 50px;
+    padding: 14px 16px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .birthday-icon {
+    font-size: 36px;
+  }
+
+  .birthday-title {
+    font-size: clamp(31px, 9vw, 43px);
+    letter-spacing: 0;
+  }
+
+  .small-greeting {
+    font-size: 15px;
+  }
+
+  .birthday-message {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .signature {
+    font-size: 15px;
+  }
+
+  .memories-navigation {
+    padding: 23px 5px;
+  }
+
+  .photo-gallery {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .gallery-photo,
+  .gallery-photo:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: 100%;
+    height: auto;
+    max-height: 430px;
+    aspect-ratio: 4 / 5;
+  }
+
+  .video-card {
+    padding: 9px;
+  }
+
+  .memory-video {
+    max-height: 240px;
+  }
+
+  .closing-wish {
+    font-size: 14px;
+  }
+
+  .bottom-note {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+}
+
+/* 15. REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <title>Happy Birthday, Dinesh Sir!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- FIREWORKS -->
+    <canvas id="fireworksCanvas"></canvas>
+    <div id="confettiContainer"></div>
+
+    <!-- PAGE 1: WELCOME -->
+    <section id="welcomeScreen" class="screen welcome-screen">
+      <div class="gold-ring"></div>
+
+      <p class="eyebrow">A SPECIAL DAY • A SPECIAL PERSON</p>
+      <div class="crown">✦</div>
+
+      <h1>A Little Surprise<br />For <span>Dinesh Sir</span></h1>
+
+      <p class="welcome-message">
+        Some days deserve to be celebrated a little more. Today is one of them.
+      </p>
+
+      <button id="surpriseButton" class="gold-button" type="button">
+        OPEN YOUR SURPRISE →
+      </button>
+
+      <p class="bottom-note">MADE WITH WARM WISHES ♥</p>
+    </section>
+
+    <!-- PAGE 1: COUNTDOWN -->
+    <section id="countdownScreen" class="screen countdown-screen hidden">
+      <p class="eyebrow">THE MOMENT HAS ARRIVED</p>
+      <h2>Ready for your surprise?</h2>
+      <div id="countdownNumber">3</div>
+      <p class="countdown-caption">A little celebration, just for you ✨</p>
+    </section>
+
+    <!-- PAGE 1: BIRTHDAY REVEAL -->
+    <main id="birthdayReveal" class="screen reveal-screen hidden">
+      <div class="reveal-content">
+        <p class="eyebrow">TODAY IS ALL ABOUT YOU</p>
+        <div class="birthday-icon">🎂</div>
+
+        <p class="small-greeting">Wishing you a wonderful day</p>
+
+        <h1 class="birthday-title">
+          HAPPY BIRTHDAY
+          <span>DINESH SIR!</span>
+        </h1>
+
+        <div class="gold-divider"><span>✦</span></div>
+
+        <p class="birthday-message">
+          May your special day be filled with happiness, laughter, good health,
+          and beautiful memories. Wishing you continued success, new
+          opportunities, and many wonderful moments in the year ahead.
+        </p>
+
+        <p class="signature">Warmest wishes, with respect and regards.</p>
+
+        <!-- MUSIC BUTTON -->
+        <button id="musicToggle" class="gold-button music-button" type="button">
+          ♫ PLAY MUSIC
+        </button>
+
+        <!-- GO TO MEMORIES -->
+        <div class="memories-navigation">
+          <p class="eyebrow">THERE'S MORE TO THE SURPRISE</p>
+          <button id="memoriesButton" class="gold-button" type="button">
+            VIEW SPECIAL MEMORIES →
+          </button>
+        </div>
+
+        <p class="closing-wish">Here's to another amazing year! ✨</p>
+      </div>
+    </main>
+
+    <!-- PAGE 2: PHOTOS AND VIDEO -->
+    <section id="memoriesPage" class="screen reveal-screen hidden">
+      <div class="reveal-content">
+        <p class="eyebrow">MADE WITH WARM WISHES</p>
+
+        <h1 class="birthday-title">
+          SPECIAL
+          <span>MEMORIES</span>
+        </h1>
+
+        <p class="birthday-message">
+          A few moments to remember and celebrate. ✨
+        </p>
+
+        <!-- THREE PHOTOS -->
+        <section id="gallerySection" class="gallery-section">
+          <p class="eyebrow">A FEW SPECIAL MOMENTS</p>
+          <h2>Memories to Smile About</h2>
+
+          <div class="photo-gallery">
+            <img
+              src="images/dinesh-1.jpg"
+              alt="Dinesh Sir photo"
+              class="gallery-photo"
+            />
+
+            <img
+              src="images/dinesh-2.jpg"
+              alt="A special memory"
+              class="gallery-photo"
+            />
+
+            <img
+              src="images/dinesh-3.jpg"
+              alt="Another special memory"
+              class="gallery-photo"
+            />
+          </div>
+        </section>
+
+        <!-- ONE VIDEO -->
+        <div class="video-section">
+          <p class="eyebrow">LITTLE MOMENTS, LASTING MEMORIES</p>
+          <h2>Our Special Memories</h2>
+
+          <div class="video-gallery">
+            <div class="video-card">
+              <video
+                class="memory-video"
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+              >
+                <source src="videos/memory-1.mp4" type="video/mp4" />
+                Your browser cannot play this video.
+              </video>
+
+              <button class="sound-toggle" type="button">
+                🔇 Turn Sound On
+              </button>
+
+              <p>A memory worth celebrating ✨</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BACK BUTTON -->
+        <button id="backToBirthday" class="gold-button" type="button">
+          ← BACK TO BIRTHDAY
+        </button>
+
+        <p class="closing-wish">With warm wishes, always. ✨</p>
+      </div>
+    </section>
+
+    <!-- BIRTHDAY INSTRUMENTAL -->
+    <audio
+      id="birthdayMusic"
+      src="music/birthday-instrumental.mp3"
+      preload="auto"
+      loop
+    ></audio>
+
+    <!-- CONNECT JAVASCRIPT -->
+    <script src="script.js"></script>
+  </body>
+</html>
